@@ -147,16 +147,11 @@ h1 {
 
 h4 {
   margin: 4% 0% 2%;
-  font-weight: normal;
 }
 
 .guesser-box {
   display: flex;
   justify-content: center;
-}
-
-h4.bold{
-  margin:.5% 1%
 }
 
 .player-guess {
