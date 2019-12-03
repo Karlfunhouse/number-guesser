@@ -102,6 +102,7 @@ h1 {
   background-color: #FFFFFF;
   width: 80%;
   padding: 2%;
+  border: 1px solid #BFBFBF;
 }
 
 
@@ -129,7 +130,7 @@ h1 {
   width: 30%;
   height: 100%;
   font-size: 100%;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #BFBFBF;
 }
 
 h4{
