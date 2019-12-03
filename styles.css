@@ -1,5 +1,6 @@
 * {
   font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
 }
 
 html,
@@ -7,6 +8,12 @@ body,
 main,
 .container {
   width: 100%;
+  height: 100%
+}
+
+main {
+  display: flex;
+  flex-direction: column;
   height: 100%
 }
 
@@ -83,6 +90,9 @@ h1 {
 
 .container {
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
 }
 
 .side {
@@ -130,7 +140,7 @@ h1 {
   width: 30%;
   height: 100%;
   font-size: 100%;
-  border: 1px solid #BFBFBF;
+  border:none;
   color: white;
   font-weight: bold;
 }
