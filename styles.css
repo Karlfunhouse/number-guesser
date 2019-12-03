@@ -10,7 +10,6 @@ main,
   height: 100%
 }
 
-
 .bold {
   font-weight: 700;
 }
@@ -45,7 +44,6 @@ h1 {
   line-height: 80%;
 }
 
-
 .head-line {
   color: #d0d2d3;
   margin: 15px;
@@ -53,15 +51,16 @@ h1 {
   font-size: 1.8vw;
 }
 
-
 .head-line {
   line-height: 0.5;
   text-align: center;
 }
+
 .head-line span {
   display: inline-block;
   position: relative;
 }
+
 .head-line span:before,
 .head-line span:after {
   content: "";
@@ -81,7 +80,6 @@ h1 {
   left: 100%;
   margin-left: 10px;
 }
-
 
 .container {
   display: flex;
@@ -104,7 +102,6 @@ h1 {
   width: 50%;
 }
 
-
 .game-box {
   background-color: #FFFFFF;
   width: 89%;
@@ -112,16 +109,13 @@ h1 {
   border: 1px solid #BFBFBF;
 }
 
-
 .game-box p {
   margin: 0;
 }
 
-
 .player {
   width: 45%;
 }
-
 
 .button-box {
   display: flex;
@@ -129,7 +123,6 @@ h1 {
   margin: 4% 0% 1%;
   height: 30px;
 }
-
 
 .game-button {
   background-color: #d0d2d3;
@@ -146,7 +139,6 @@ h4 {
   margin: 4% 0% 2%;
   font-weight: normal;
 }
-
 
 .guesser-box {
   display: flex;
