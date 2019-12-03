@@ -125,18 +125,9 @@ h1 {
 
 
 
-label .range-box {
-  display: inline-block;
-  width: 6em;
-  margin-right: .5em;
-  padding-top: 1.5em;
-
-}
-
 .player {
   width: 45%;
 }
-
 
 .button-box{
   display: flex;
@@ -144,8 +135,6 @@ label .range-box {
   margin: 4% 0% 1%;
   height: 30px;
 }
-
-
 
 .game-button{
   background-color: #d0d2d3;
@@ -160,6 +149,8 @@ label .range-box {
 .game-button:first-of-type {
   padding: 4px 15px;
 }
+
 h4{
   margin:4% 0% 2%;
+
 }
