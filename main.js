@@ -4,7 +4,7 @@
 
   function enableButton() {
     clearButton.removeAttribute('disabled')
-    }
+  }
 
   function clearFields() {
     for (var i = 0; i < challengerInputField.length; i++) {

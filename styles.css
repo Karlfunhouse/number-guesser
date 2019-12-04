@@ -21,7 +21,7 @@ main {
   font-weight: 700;
 }
 
-.magenta{
+.magenta {
   color: #dd1972;
 }
 
@@ -44,7 +44,6 @@ header {
   color: #dd1972;
   padding: 20px;
 }
-
 
 h1 {
   font-weight: 300;
@@ -82,11 +81,11 @@ h1 {
   width: 30%;
 }
 
-
 .head-line span:before {
   right: 100%;
   margin-right: 10px;
 }
+
 .head-line span:after {
   left: 100%;
   margin-left: 10px;
@@ -138,7 +137,7 @@ h1 {
   margin-left: 20px;
 }
 
-.range-box{
+.range-box {
   display: flex;
   flex-wrap: wrap;
 }
@@ -176,7 +175,7 @@ h1 {
   background-color: #6e6e6e;
   border-radius: 45px;
   font-size: 100%;
-  border:none;
+  border: none;
   color: white;
   font-weight: bold;
   width: fit-content;
