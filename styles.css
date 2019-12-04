@@ -25,6 +25,10 @@ main {
   color: #dd1972;
 }
 
+.hide {
+  display: none;
+}
+
 .underlined {
   text-decoration: underline;
 }
@@ -138,7 +142,7 @@ h1 {
 }
 
 .game-button {
-  background-color: #d0d2d3;
+  background-color: #6e6e6e;
   border-radius: 45px;
   width: 30%;
   height: 100%;
@@ -146,6 +150,10 @@ h1 {
   border:none;
   color: white;
   font-weight: bold;
+}
+
+.game-button:disabled {
+  background-color: #d0d2d3;
 }
 
 h4 {
