@@ -25,6 +25,10 @@ main {
   color: #dd1972;
 }
 
+.hide {
+  display: none;
+}
+
 .underlined {
   text-decoration: underline;
 }
@@ -182,11 +186,8 @@ h1 {
   background-color: #d0d2d3;
 }
 
-
-
-
 h4 {
-  margin: 4% 0% 2%;
+  margin: 1% 0% 2%;
 }
 
 .guesser-box {

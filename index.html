@@ -27,7 +27,6 @@
               </section>
               <section class="content-box">
                 <input type="button" class="game-button range-button" id="update-button" disabled value="UPDATE"/>
-
               </section>
             </div>
           </section>
@@ -36,24 +35,21 @@
               <p>The Current Range is <span class="bold underlined"><strong>1</strong></span> to <span class="bold underlined"><strong>100</strong></span></p>
               <h4>Challenger 1</h4>
               <label for="player1">Name</label>
-              <input id="player1" class="player" type="text" name="player">
+              <input class="game-input" id="player1" class="player" type="text" name="player">
               <label for="guess1">Guess</label>
-              <input id="guess1" type="number" name="player">
+              <input class="game-input" id="guess1" type="number" name="player">
               <h4>Challenger 2</h4>
               <label for="player2">Name</label>
-              <input id="player2" class="player" type="text" name="player">
+              <input class="game-input" id="player2" class="player" type="text" name="player">
               <label for="guess2">Guess</label>
-              <input id="guess2" type="number" name="player">
+              <input class="game-input" id="guess2" type="number" name="player">
                 <section class="button-box">
-                  <button class="game-button" type="button" name="button">
-                    <label>SUBMIT GUESS</label>
-                  </button>
-                  <button class="game-button" type="button" name="button">
-                    <label>RESET GAME</label>
-                  </button>
-                  <button class="game-button" type="button" name="button">
-                    <label>CLEAR FORM</label>
-                  </button>
+                  <label for="submit-button" class="hide">SUBMIT GUESS</label>
+                  <input type="button" id="submit-button" disabled class="play-input game-button" name="" value="SUBMIT GUESS">
+                  <label for="reset-button" class="hide">RESET GAME</label>
+                  <input type="button" id="reset-button" disabled class="play-input game-button" name="" value="RESET GAME">
+                  <label for="clear-button" class="hide">CLEAR FORM</label>
+                  <input type="button" id="clear-button" disabled class="play-input game-button" name="" value="CLEAR FORM">
                 </section>
             </form>
           </section>
@@ -75,6 +71,7 @@
               </div>
             </section>
         </section>
+      </section>
         <section class="side right-side">
         </section>
       </div>
