@@ -8,19 +8,24 @@ body,
 main,
 .container {
   width: 100%;
-  height: 100%;
+  height: 100%
 }
 
 main {
   display: flex;
   flex-direction: column;
+  height: 100%
 }
 
 .bold {
   font-weight: 700;
 }
 
-.underlined{
+.magenta{
+  color: #dd1972;
+}
+
+.underlined {
   text-decoration: underline;
 }
 
@@ -46,7 +51,6 @@ h1 {
   line-height: 80%;
 }
 
-
 .head-line {
   color: #d0d2d3;
   margin: 15px;
@@ -54,15 +58,16 @@ h1 {
   font-size: 1.8vw;
 }
 
-
 .head-line {
   line-height: 0.5;
   text-align: center;
 }
+
 .head-line span {
   display: inline-block;
   position: relative;
 }
+
 .head-line span:before,
 .head-line span:after {
   content: "";
@@ -83,12 +88,11 @@ h1 {
   margin-left: 10px;
 }
 
-
 .container {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: fit-content;
 }
 
 .side {
@@ -96,6 +100,8 @@ h1 {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  height: 100%;
+  margin: 0;
 }
 
 .left-side {
@@ -108,49 +114,68 @@ h1 {
   width: 50%;
 }
 
-
 .game-box {
   background-color: #FFFFFF;
-  width: 80%;
+  width: 89%;
   padding: 2%;
   border: 1px solid #BFBFBF;
-  /* margin: %; */
+  margin: 10px;
 }
-
 
 .game-box p {
   margin: 0;
 }
 
-
-
-
 .player {
   width: 45%;
 }
 
-.button-box{
+.button-box {
   display: flex;
   justify-content: space-evenly;
   margin: 4% 0% 1%;
   height: 30px;
 }
 
-.game-button{
+.game-button {
   background-color: #d0d2d3;
-  color: white;
   border-radius: 45px;
+  width: 30%;
+  height: 100%;
   font-size: 100%;
-  border: 1px none #BFBFBF;
+  border:none;
+  color: white;
   font-weight: bold;
-  padding: 4px 10px;
 }
 
-.game-button:first-of-type {
-  padding: 4px 15px;
+h4 {
+  margin: 1% 0% 2%;
 }
 
-h4{
-  margin:4% 0% 2%;
+.guesser-box {
+  display: flex;
+  justify-content: center;
+}
 
+.player-guess {
+  display: flex;
+  flex-direction: column;
+  padding: 0 7%;
+  align-items: center;
+  font-size: 19px;
+  width: 50%
+}
+
+.guesser-box hr {
+  width: 2px;
+  background: #BFBFBF;
+  border: none;
+  height: 210px;
+  margin: -5% 0 -.3%;
+}
+
+.player-guess h1 {
+  font-size: 550%;
+  width: 120px;
+  height: 83px;
 }
