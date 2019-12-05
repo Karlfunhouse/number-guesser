@@ -8,7 +8,8 @@
   var guessOneDisplay = document.querySelector('#guess-1-in-game');
   var guessTwoDisplay = document.querySelector('#guess-2-in-game');
   var submitButton = document.querySelector('#submit-button');
-  var inputForGame = document.querySelector('#input-for-game')
+  var inputForGame = document.querySelector('#input-for-game');
+  var guessHint = document.querySelectorAll('.guess-clue');
 
   function enableSubmitButton() {
     if (challengerInputField[0].value.length !== 0 &&
@@ -44,12 +45,37 @@
     for (var i = 0; i < challengerNames.length; i++) {
       challengerNames[i].setAttribute('disabled', true);
     };
+    checkGuess1();
+    checkGuess2();
     guessOneDisplay.innerText = challengerGuesses[0].value;
     guessTwoDisplay.innerText = challengerGuesses[1].value;
       challengerGuesses[0].value = ' '
       challengerGuesses[1].value = ' '
       submitButton.setAttribute('disabled', true);
       clearButton.setAttribute('disabled', true);
+
+  }
+
+  function checkGuess1() {
+    // debugger
+    if (parseInt(challengerGuesses[0].value) < 50){
+      guessHint[0].innerText = 'Too Low!'
+    }else if(parseInt(challengerGuesses[0].value) > 50){
+      guessHint[0].innerText = 'Too High!'
+    }else{
+      guessHint[0].innerText = 'BOOM BABY!'
+    }
+  }
+
+  function checkGuess2() {
+    // debugger
+    if (parseInt(challengerGuesses[1].value) < 50){
+      guessHint[1].innerText = 'Too Low!'
+    }else if(parseInt(challengerGuesses[1].value) > 50){
+      guessHint[1].innerText = 'Too High!'
+    }else{
+      guessHint[1].innerText = 'BOOM BABY!'
+    }
   }
 
   submitButton.addEventListener('click', displayChallengerInputs);
