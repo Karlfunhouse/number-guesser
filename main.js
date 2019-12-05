@@ -25,9 +25,17 @@
   }
 
   function clearFields() {
-    for (var i = 0; i < challengerInputField.length; i++); {
-      challengerInputField[i].value = ' '
+    if (challengerNames[0].hasAttribute('disabled') &&
+        challengerNames[0].hasAttribute('disabled')) {
+        challengerInputField[1].value = ' '
+        challengerInputField[3].value = ' '
+      }else {
+        for (var i = 0; i < challengerInputField.length; i++) {
+          challengerInputField[i].value = ' '
+      }
     }
+
+
     clearButton.setAttribute('disabled', true);
     submitButton.setAttribute('disabled', true);
   }
@@ -43,6 +51,7 @@
       challengerGuesses[0].value = ' '
       challengerGuesses[1].value = ' '
       submitButton.setAttribute('disabled', true);
+      clearButton.setAttribute('disabled', true);
   }
 
   submitButton.addEventListener('click', displayChallengerInputs);
