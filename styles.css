@@ -213,6 +213,6 @@ h4 {
 
 .player-guess h1 {
   font-size: 550%;
-  width: 120px;
+  width: fit-content;
   height: 83px;
 }
