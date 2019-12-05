@@ -10,6 +10,11 @@
   var submitButton = document.querySelector('#submit-button');
   var inputForGame = document.querySelector('#input-for-game');
   var guessHint = document.querySelectorAll('.guess-clue');
+  var randomNumber = createNumber();
+
+  function createNumber() {
+    return Math.round(Math.random() * 100);
+  }
 
   function enableSubmitButton() {
     if (challengerInputField[0].value.length !== 0 &&
@@ -53,14 +58,12 @@
       challengerGuesses[1].value = ' '
       submitButton.setAttribute('disabled', true);
       clearButton.setAttribute('disabled', true);
-
   }
 
   function checkGuess1() {
-    // debugger
-    if (parseInt(challengerGuesses[0].value) < 50){
+    if (parseInt(challengerGuesses[0].value) < randomNumber){
       guessHint[0].innerText = 'Too Low!'
-    }else if(parseInt(challengerGuesses[0].value) > 50){
+    }else if(parseInt(challengerGuesses[0].value) > randomNumber){
       guessHint[0].innerText = 'Too High!'
     }else{
       guessHint[0].innerText = 'BOOM BABY!'
@@ -68,10 +71,10 @@
   }
 
   function checkGuess2() {
-    // debugger
-    if (parseInt(challengerGuesses[1].value) < 50){
+    if (parseInt(challengerGuesses[1].value) < randomNumber){
       guessHint[1].innerText = 'Too Low!'
-    }else if(parseInt(challengerGuesses[1].value) > 50){
+      console.log("randomNumber")
+    }else if(parseInt(challengerGuesses[1].value) > randomNumber){
       guessHint[1].innerText = 'Too High!'
     }else{
       guessHint[1].innerText = 'BOOM BABY!'
