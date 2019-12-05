@@ -8,6 +8,7 @@
   var guessOneDisplay = document.querySelector('#guess-1-in-game');
   var guessTwoDisplay = document.querySelector('#guess-2-in-game');
   var submitButton = document.querySelector('#submit-button');
+  var inputForGame = document.querySelector('#input-for-game')
 
   function enableSubmitButton() {
     if (challengerInputField[0].value.length !== 0 &&
@@ -20,13 +21,18 @@
     }
   }
 
-  function enableButton() {
+  function enableClearButton() {
     clearButton.removeAttribute('disabled');
   }
 
   function clearFields() {
-    for (var i = 0; i < challengerInputField.length; i++); {
-      challengerInputField[i].value = ' '
+    if (challengerNames[0].hasAttribute('disabled')) {
+        challengerInputField[1].value = ' '
+        challengerInputField[3].value = ' '
+      }else {
+        for (var i = 0; i < challengerInputField.length; i++) {
+          challengerInputField[i].value = ' '
+      }
     }
     clearButton.setAttribute('disabled', true);
     submitButton.setAttribute('disabled', true);
@@ -43,16 +49,11 @@
       challengerGuesses[0].value = ' '
       challengerGuesses[1].value = ' '
       submitButton.setAttribute('disabled', true);
+      clearButton.setAttribute('disabled', true);
   }
 
   submitButton.addEventListener('click', displayChallengerInputs);
-  challengerInputField[0].addEventListener('keyup', enableSubmitButton);
-  challengerInputField[1].addEventListener('keyup', enableSubmitButton);
-  challengerInputField[2].addEventListener('keyup', enableSubmitButton);
-  challengerInputField[3].addEventListener('keyup', enableSubmitButton);
-  challengerInputField[0].addEventListener('input', enableButton);
-  challengerInputField[1].addEventListener('input', enableButton);
-  challengerInputField[2].addEventListener('input', enableButton);
-  challengerInputField[3].addEventListener('input', enableButton);
+  inputForGame.addEventListener('input', enableClearButton)
+  inputForGame.addEventListener('input', enableSubmitButton)
   clearButton.addEventListener('click', clearFields);
 }());
