@@ -20,10 +20,14 @@
   function createNumber() {
     return Math.round(Math.random() * 100);
   }
-
+  console.log(randomNumber)
   function setRange() {
     rangeView[0].innerText = minRange.value;
     rangeView[1].innerText = maxRange.value;
+    var min = parseInt(minRange.value)
+    var max = parseInt(maxRange.value)
+    randomNumber = Math.round(Math.random() * (max-min) + min);
+    console.log(randomNumber)
   }
 
   function enableSubmitButton() {
@@ -87,6 +91,7 @@
     }else{
       guessHint[0].innerText = 'BOOM BABY!'
     }
+      console.log(randomNumber)
   }
 
   function checkGuess2() {
