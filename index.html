@@ -16,16 +16,16 @@
     </header>
     <div class="container">
       <section class="side left-side">
-        <section class="game-box">
+        <section id="set-range-box" class="game-box">
           <h4 class="range-input">Set Range</h4>
           <div class="range-box">
             <section class="content-box">
               <label class="range-input" for="min-range">Min Range</label>
-              <input id="min-range" type="number" class="range-input" name="minRange" />
+              <input id="min-range-input" type="number" class="range-input" name="minRange" />
             </section>
             <section class="content-box max-box">
               <label class="range-input" for="max-range">Max Range</label>
-              <input id="max-range" type="number" class="range-input" name="maxRange" />
+              <input id="max-range-input" type="number" class="range-input" name="maxRange" />
             </section>
             <section class="content-box">
               <input type="button" class="game-button range-button" id="update-button" disabled value="UPDATE" />
@@ -34,7 +34,7 @@
         </section>
         <section id="input-for-game" class="game-box">
           <form class="" action="index.html" method="post">
-            <p>The Current Range is <span class="bold underlined"><strong>1</strong></span> to <span class="bold underlined"><strong>100</strong></span></p>
+            <p>The Current Range is <span class="bold underlined range-view-js"><strong>1</strong></span> to <span class="bold underlined range-view-js"><strong>100</strong></span></p>
             <h4>Challenger 1</h4>
             <label for="player1">Name</label>
             <input class="game-input player" id="player1"  type="text" name="player">
