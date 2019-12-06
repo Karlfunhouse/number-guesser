@@ -10,10 +10,20 @@
   var submitButton = document.querySelector('#submit-button');
   var inputForGame = document.querySelector('#input-for-game');
   var guessHint = document.querySelectorAll('.guess-clue');
+  var minRange = document.querySelector('#min-range-input');
+  var maxRange = document.querySelector('#max-range-input');
+  var rangeView = document.querySelectorAll('.range-view-js');
+  var updateButton = document.querySelector('#update-button');
+  var inputForRange = document.querySelector('#set-range-box');
   var randomNumber = createNumber();
 
   function createNumber() {
     return Math.round(Math.random() * 100);
+  }
+
+  function setRange() {
+    rangeView[0].innerText = minRange.value;
+    rangeView[1].innerText = maxRange.value;
   }
 
   function enableSubmitButton() {
@@ -24,6 +34,15 @@
         submitButton.removeAttribute('disabled');
     }else{
         submitButton.setAttribute('disabled', true);
+    }
+  }
+
+  function enableUpdateButton() {
+    if (minRange.value.length !== 0 &&
+        maxRange.value.length !== 0){
+        updateButton.removeAttribute('disabled');
+    }else{
+        updateButton.setAttribute('disabled', true);
     }
   }
 
@@ -80,9 +99,10 @@
       guessHint[1].innerText = 'BOOM BABY!'
     }
   }
-
+  inputForRange.addEventListener('input', enableUpdateButton);
+  updateButton.addEventListener('click', setRange);
   submitButton.addEventListener('click', displayChallengerInputs);
-  inputForGame.addEventListener('input', enableClearButton)
-  inputForGame.addEventListener('input', enableSubmitButton)
+  inputForGame.addEventListener('input', enableClearButton);
+  inputForGame.addEventListener('input', enableSubmitButton);
   clearButton.addEventListener('click', clearFields);
 }());
