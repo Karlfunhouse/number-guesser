@@ -90,6 +90,7 @@
       guessHint[0].innerText = 'Too High!'
     }else{
       guessHint[0].innerText = 'BOOM BABY!'
+      gameWinner()
     }
       console.log(randomNumber)
   }
@@ -102,8 +103,16 @@
       guessHint[1].innerText = 'Too High!'
     }else{
       guessHint[1].innerText = 'BOOM BABY!'
+      gameWinner()
     }
   }
+
+  function gameWinner() {
+
+  }
+
+
+
   inputForRange.addEventListener('input', enableUpdateButton);
   updateButton.addEventListener('click', setRange);
   submitButton.addEventListener('click', displayChallengerInputs);
