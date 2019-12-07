@@ -228,6 +228,7 @@ h4 {
   padding: 5px 0;
   align-content: center;
   border-color: #aeaeae;
+  display: relative;
 }
 
 .challenger-names {
@@ -293,7 +294,16 @@ h4 {
   margin: 1% 0 1% 0;
   padding: 1% 4% 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#guesses {
+  margin: 1% 10%;
+}
+
+#timer {
+  margin: 1% 10%;
 }
 
 .close-button {
@@ -304,6 +314,6 @@ h4 {
   width: 20px;
   height: 20px;
   font-size: 80%;
-  justify-content: flex-end;
   margin-left: 15%;
+
 }

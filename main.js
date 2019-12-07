@@ -17,6 +17,8 @@
   var inputForRange = document.querySelector('#set-range-box');
   var randomNumber = createNumber();
   var winningSide = document.querySelector('#winning-side');
+  var numberOfGuesses = 0;
+  var deleteWinnerCard
 
   function createNumber() {
     return Math.round(Math.random() * 100);
@@ -95,6 +97,7 @@
   }
 
   function checkGuesses() {
+    numberOfGuesses += 2;
     checkGuess1();
     checkGuess2();
   }
@@ -106,7 +109,7 @@
       guessHint[0].innerText = 'Too High!'
     } else {
       guessHint[0].innerText = 'BOOM BABY!'
-      gameWinner()
+      gameWinner(challengerNames[0].value)
     }
   }
 
@@ -117,11 +120,11 @@
       guessHint[1].innerText = 'Too High!'
     } else {
       guessHint[1].innerText = 'BOOM BABY!'
-      gameWinner()
+      gameWinner(challengerNames[1].value)
     }
   }
 
-  function gameWinner() {
+  function gameWinner(winner) {
     var winnerCard = document.createElement('section')
     winnerCard.classList.add('game-box')
     winnerCard.classList.add('winner-card')
@@ -131,21 +134,31 @@
           </section>
           <hr>
           <section class="winner-box">
-            <h2 class="winner-name">CHALLENGER 2 NAME</h2>
+            <h2 class="winner-name">${winner}</h2>
           </section>
           <section>
             <h4 class="winner-box winner ">WINNER</h4>
           </section>
           <hr>
           <section class="card-bottom">
-            <p class="guesses"><span class="bold">47</span> GUESSES</p>
-            <p class="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
+            <p id="guesses"><span class="bold">${numberOfGuesses}</span> GUESSES</p>
+            <p id="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
             <input type="button" class="close-button" id="x-button" />
-          </section>`
+          </section>
+          `
+    deleteWinnerCard = document.querySelector('.close-button');
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
+    console.log(deleteWinnerCard);
   }
 
+  function closeCard(event) {
+    if (event.target.type == 'button') {
+      event.target.parentElement.parentElement.remove();
+    };
+  }
+
+  winningSide.addEventListener('click', closeCard);
   inputForRange.addEventListener('input', enableUpdateButton);
   updateButton.addEventListener('click', setRange);
   submitButton.addEventListener('click', displayChallengerInputs);
