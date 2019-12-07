@@ -18,6 +18,7 @@
   var randomNumber = createNumber();
   var winningSide = document.querySelector('#winning-side');
   var numberOfGuesses = 0;
+  var deleteWinnerCard
 
   function createNumber() {
     return Math.round(Math.random() * 100);
@@ -146,8 +147,17 @@
           </section>`
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
+    deleteWinnerCard = document.querySelector('.winner-card');
+    console.log(deleteWinnerCard);
   }
 
+  function closeCard() {
+    var winnerCard = document.querySelector('.winner-card')
+    deleteWinnerCard.style.display = 'none';
+
+  }
+
+  winningSide.addEventListener('click', closeCard);
   inputForRange.addEventListener('input', enableUpdateButton);
   updateButton.addEventListener('click', setRange);
   submitButton.addEventListener('click', displayChallengerInputs);
