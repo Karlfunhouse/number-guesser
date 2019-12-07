@@ -115,14 +115,20 @@ h1 {
 .right-side {
   background-color: #d0d2d3;
   width: 50%;
+  border-left: 2px solid #BFBFBF;
+  display: flex;
+  justify-content: flex-start;
+  padding: .75% 0;
+  overflow-x: scroll;
 }
 
 .game-box {
   background-color: #FFFFFF;
   width: 89%;
   padding: 2%;
-  border: 1px solid #BFBFBF;
+  border: 2px solid #ededed;
   margin: 10px;
+
 }
 
 .content-box {
@@ -215,4 +221,87 @@ h4 {
   font-size: 550%;
   width: fit-content;
   height: 83px;
+}
+
+.winner-card {
+  margin: 1%;
+  padding: 5px 0;
+  align-content: center;
+  border-color: #aeaeae;
+}
+
+.challenger-names {
+  color: #7F7F7F;
+  width: 100%;
+  font-size: 1em;
+  margin: 0;
+  padding: 1.5% 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.winner-card hr {
+  width: 95%;
+  margin: 0 2.5%;
+  border: .5px solid #D0D2D3;
+}
+.challenger1-name {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.challenger2-name {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.winner-box {
+  font-size: 2.2em;
+  color: #7F7F7F;
+  display: flex;
+  justify-content: center;
+
+}
+
+.winner-name {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0 0;
+  width: 100%;
+  font-size: 100%;
+}
+
+.winner {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  margin: -5px 0 15px 0;
+  font-weight: 300;
+
+}
+
+.card-bottom {
+  color: #7F7F7F;
+  width: 100%;
+  margin: 1% 0 1% 0;
+  padding: 1% 4% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-button {
+  background-image: url(https://www.iconsdb.com/icons/preview/color/6E6E6E/x-mark-3-xxl.png);
+  background-size: 100%;
+  color: white;
+  border: none;
+  width: 19px;
+  height: 19px;
+  font-size: 80%;
+  justify-content: flex-end;
+  margin-left: 15%;
+
 }
