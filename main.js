@@ -141,20 +141,20 @@
           </section>
           <hr>
           <section class="card-bottom">
-            <p class="guesses"><span class="bold">${numberOfGuesses}</span> GUESSES</p>
-            <p class="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
-            <input type="button" class="close-button" id="x-button" />
-          </section>`
+            <p id="guesses"><span class="bold">${numberOfGuesses}</span> GUESSES</p>
+            <p id="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
+          </section>
+          <input type="button" class="close-button" id="x-button" />`
+    deleteWinnerCard = document.querySelector('.close-button');
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
-    deleteWinnerCard = document.querySelector('.winner-card');
     console.log(deleteWinnerCard);
   }
 
-  function closeCard() {
-    var winnerCard = document.querySelector('.winner-card')
-    deleteWinnerCard.style.display = 'none';
-
+  function closeCard(event) {
+    if (event.target.type == 'button') {
+      event.target.parentElement.remove();
+    };
   }
 
   winningSide.addEventListener('click', closeCard);
