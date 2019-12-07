@@ -263,7 +263,6 @@ h4 {
   color: #7F7F7F;
   display: flex;
   justify-content: center;
-
 }
 
 .winner-name {
@@ -281,7 +280,6 @@ h4 {
   justify-content: center;
   margin: -5px 0 15px 0;
   font-weight: 300;
-
 }
 
 .card-bottom {
@@ -294,14 +292,13 @@ h4 {
 }
 
 .close-button {
-  background-image: url(https://www.iconsdb.com/icons/preview/color/6E6E6E/x-mark-3-xxl.png);
+  background-image: url('x-mark-3-512.png');
   background-size: 100%;
   color: white;
   border: none;
-  width: 19px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
   font-size: 80%;
   justify-content: flex-end;
   margin-left: 15%;
-
 }
