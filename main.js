@@ -126,8 +126,8 @@
     winnerCard.classList.add('game-box')
     winnerCard.classList.add('winner-card')
     var winnerInfo = `<section class="challenger-names">
-            <h4 class="challenger1-name bold" >CHALLENGER 1 NAME</h4>vs.
-            <h4 class="challenger2-name bold">CHALLENGER 2 NAME</h4>
+            <h4 id='playerOneDisplay' class="challenger1-name bold" >${challengerNames[0].value}</h4>vs.
+            <h4 id='playerTwoDisplay' class="challenger2-name bold">${challengerNames[1].value}</h4>
           </section>
           <hr>
           <section class="winner-box">

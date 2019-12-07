@@ -237,7 +237,7 @@ h4 {
   margin: 0;
   padding: 1.5% 5%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -246,10 +246,15 @@ h4 {
   margin: 0 2.5%;
   border: .5px solid #D0D2D3;
 }
+
 .challenger1-name {
   display: flex;
   justify-content: flex-start;
   margin: 0;
+}
+
+.challenger-names h4 {
+  text-transform: uppercase;
 }
 
 .challenger2-name {
