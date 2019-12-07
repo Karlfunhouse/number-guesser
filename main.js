@@ -143,8 +143,9 @@
           <section class="card-bottom">
             <p id="guesses"><span class="bold">${numberOfGuesses}</span> GUESSES</p>
             <p id="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
+            <input type="button" class="close-button" id="x-button" />
           </section>
-          <input type="button" class="close-button" id="x-button" />`
+          `
     deleteWinnerCard = document.querySelector('.close-button');
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
@@ -153,7 +154,7 @@
 
   function closeCard(event) {
     if (event.target.type == 'button') {
-      event.target.parentElement.remove();
+      event.target.parentElement.parentElement.remove();
     };
   }
 
