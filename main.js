@@ -123,8 +123,8 @@
 
   function gameWinner(){
     var winnerCard = document.createElement('div')
-    var section1 =
-    winnerCard.innerHTML = section1
+    var winnerInfo = `<section class="game-box winner-card"><section class="challenger-names"><h4 class="challenger1-name bold" >CHALLENGER 1 NAME</h4>vs.<h4 class="challenger2-name bold">CHALLENGER 2 NAME</h4></section><hr><section class="winner-box"><h2 class="winner-name">CHALLENGER 2 NAME</h2></section><section><h4 class="winner-box winner ">WINNER</h4></section><hr><section class="card-bottom"><p class="guesses"><span class="bold">47</span> GUESSES</p><p class="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p><input type="button" class="close-button" id="x-button" /></section>`
+    winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
   }
 
