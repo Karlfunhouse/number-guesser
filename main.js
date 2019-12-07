@@ -96,7 +96,7 @@
   }
 
   function checkGuesses() {
-    numberOfGuesses += 1;
+    numberOfGuesses += 2;
     checkGuess1();
     checkGuess2();
   }
