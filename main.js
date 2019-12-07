@@ -29,9 +29,11 @@
   }
 
   function disableInput() {
-    for (var i = 0; i < challengerNames.length; i++) {
-      challengerNames[i].setAttribute('disabled', true);
-    };
+    if (challengerNames[0].value.length !== 0) {
+      for (var i = 0; i < challengerNames.length; i++) {
+        challengerNames[i].setAttribute('disabled', true);
+      };
+    }
     minRange.setAttribute('disabled', true);
     maxRange.setAttribute('disabled', true);
   }
@@ -119,10 +121,13 @@
     }
   }
 
-  function gameWinner() {
-    var winnerCard = document.createElement('div');
-    winningSide.appendChild('winnerCard')
+  function gameWinner(){
+    var winnerCard = document.createElement('div')
+    var section1 =
+    winnerCard.innerHTML = section1
+    winningSide.prepend(winnerCard)
   }
+
 
 
 
