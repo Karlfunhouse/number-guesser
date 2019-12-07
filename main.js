@@ -22,7 +22,7 @@
     return Math.round(Math.random() * 100);
   }
 
-  function disableButtons(){
+  function disableButtons() {
     submitButton.setAttribute('disabled', true);
     updateButton.setAttribute('disabled', true);
     clearButton.setAttribute('disabled', true);
@@ -43,26 +43,26 @@
     rangeView[1].innerText = maxRange.value;
     var min = parseInt(minRange.value)
     var max = parseInt(maxRange.value)
-    randomNumber = Math.round(Math.random() * (max-min) + min);
+    randomNumber = Math.round(Math.random() * (max - min) + min);
   }
 
   function enableSubmitButton() {
     if (challengerInputField[0].value.length !== 0 &&
-        challengerInputField[1].value.length !== 0 &&
-        challengerInputField[2].value.length !== 0 &&
-        challengerInputField[3].value.length !== 0){
-        submitButton.removeAttribute('disabled');
-    }else{
-        submitButton.setAttribute('disabled', true);
+      challengerInputField[1].value.length !== 0 &&
+      challengerInputField[2].value.length !== 0 &&
+      challengerInputField[3].value.length !== 0) {
+      submitButton.removeAttribute('disabled');
+    } else {
+      submitButton.setAttribute('disabled', true);
     }
   }
 
   function enableUpdateButton() {
     if (minRange.value.length !== 0 &&
-        maxRange.value.length !== 0){
-        updateButton.removeAttribute('disabled');
-    }else{
-        updateButton.setAttribute('disabled', true);
+      maxRange.value.length !== 0) {
+      updateButton.removeAttribute('disabled');
+    } else {
+      updateButton.setAttribute('disabled', true);
     }
   }
 
@@ -72,11 +72,11 @@
 
   function clearFields() {
     if (challengerNames[0].hasAttribute('disabled')) {
-        challengerInputField[1].value = ' '
-        challengerInputField[3].value = ' '
-      }else {
-        for (var i = 0; i < challengerInputField.length; i++) {
-          challengerInputField[i].value = ' '
+      challengerInputField[1].value = ' '
+      challengerInputField[3].value = ' '
+    } else {
+      for (var i = 0; i < challengerInputField.length; i++) {
+        challengerInputField[i].value = ' '
       }
     }
 
@@ -100,36 +100,51 @@
   }
 
   function checkGuess1() {
-    if (parseInt(challengerGuesses[0].value) < randomNumber){
+    if (parseInt(challengerGuesses[0].value) < randomNumber) {
       guessHint[0].innerText = 'Too Low!'
-    }else if(parseInt(challengerGuesses[0].value) > randomNumber){
+    } else if (parseInt(challengerGuesses[0].value) > randomNumber) {
       guessHint[0].innerText = 'Too High!'
-    }else{
+    } else {
       guessHint[0].innerText = 'BOOM BABY!'
       gameWinner()
     }
   }
 
   function checkGuess2() {
-    if (parseInt(challengerGuesses[1].value) < randomNumber){
+    if (parseInt(challengerGuesses[1].value) < randomNumber) {
       guessHint[1].innerText = 'Too Low!'
-    }else if(parseInt(challengerGuesses[1].value) > randomNumber){
+    } else if (parseInt(challengerGuesses[1].value) > randomNumber) {
       guessHint[1].innerText = 'Too High!'
-    }else{
+    } else {
       guessHint[1].innerText = 'BOOM BABY!'
       gameWinner()
     }
   }
 
-  function gameWinner(){
-    var winnerCard = document.createElement('div')
-    var winnerInfo = `<section class="game-box winner-card"><section class="challenger-names"><h4 class="challenger1-name bold" >CHALLENGER 1 NAME</h4>vs.<h4 class="challenger2-name bold">CHALLENGER 2 NAME</h4></section><hr><section class="winner-box"><h2 class="winner-name">CHALLENGER 2 NAME</h2></section><section><h4 class="winner-box winner ">WINNER</h4></section><hr><section class="card-bottom"><p class="guesses"><span class="bold">47</span> GUESSES</p><p class="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p><input type="button" class="close-button" id="x-button" /></section>`
+  function gameWinner() {
+    var winnerCard = document.createElement('section')
+    winnerCard.classList.add('game-box')
+    winnerCard.classList.add('winner-card')
+    var winnerInfo = `<section class="challenger-names">
+            <h4 class="challenger1-name bold" >CHALLENGER 1 NAME</h4>vs.
+            <h4 class="challenger2-name bold">CHALLENGER 2 NAME</h4>
+          </section>
+          <hr>
+          <section class="winner-box">
+            <h2 class="winner-name">CHALLENGER 2 NAME</h2>
+          </section>
+          <section>
+            <h4 class="winner-box winner ">WINNER</h4>
+          </section>
+          <hr>
+          <section class="card-bottom">
+            <p class="guesses"><span class="bold">47</span> GUESSES</p>
+            <p class="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
+            <input type="button" class="close-button" id="x-button" />
+          </section>`
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
   }
-
-
-
 
   inputForRange.addEventListener('input', enableUpdateButton);
   updateButton.addEventListener('click', setRange);
