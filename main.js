@@ -16,6 +16,7 @@
   var updateButton = document.querySelector('#update-button');
   var inputForRange = document.querySelector('#set-range-box');
   var randomNumber = createNumber();
+  var winningSide = document.querySelector('#winning-side');
 
   function createNumber() {
     return Math.round(Math.random() * 100);
@@ -119,7 +120,8 @@
   }
 
   function gameWinner() {
-
+    var winnerCard = document.createElement('div');
+    winningSide.appendChild('winnerCard')
   }
 
 
