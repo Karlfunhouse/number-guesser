@@ -143,6 +143,15 @@ h1 {
   margin-left: 20px;
 }
 
+.error {
+  display: none;
+}
+
+img {
+  height: 15px;
+  width: 15px;
+}
+
 .range-box {
   display: flex;
   flex-wrap: wrap;
@@ -185,6 +194,11 @@ h1 {
   color: white;
   font-weight: bold;
   width: fit-content;
+}
+
+.game-button:hover,
+.game-button:active {
+  background-color:#dd1792;
 }
 
 .game-button:disabled {
