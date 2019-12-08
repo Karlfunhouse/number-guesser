@@ -16,9 +16,9 @@
   var updateButton = document.querySelector('#update-button');
   var inputForRange = document.querySelector('#set-range-box');
   var winningSide = document.querySelector('#winning-side');
-  var gameResetButton = document.querySelector('#reset-button')
+  var gameResetButton = document.querySelector('#reset-button');
   var numberOfGuesses = 0;
-  var deleteWinnerCard
+  var deleteWinnerCard;
   var randomNumber = createNumber();
 
   function createNumber() {
@@ -38,16 +38,14 @@
   }
 
   function resetGame() {
-    minRange.value = 0
-    maxRange.value = 100
-    newGame()
-    minRange.value = ''
-    maxRange.value = ''
+    minRange.value = 0;
+    maxRange.value = 100;
+    newGame();
     for (var i = 0; i < challengerNames.length; i++) {
       challengerNames[i].removeAttribute('disabled');
     };
-    clearFields()
-    gameResetButton.setAttribute('disabled', true)
+    clearFields();
+    gameResetButton.setAttribute('disabled', true);
   }
 
   function disableInput() {
@@ -63,9 +61,11 @@
   function setRange() {
     rangeView[0].innerText = minRange.value;
     rangeView[1].innerText = maxRange.value;
-    var min = parseInt(minRange.value || 1)
-    var max = parseInt(maxRange.value || 100)
+    var min = parseInt(minRange.value || 1);
+    var max = parseInt(maxRange.value || 100);
     randomNumber = Math.round(Math.random() * (max - min) + min);
+    minRange.value = '';
+    maxRange.value = '';
   }
 
   function enableSubmitButton() {
@@ -125,22 +125,22 @@
 
   function checkGuess1() {
     if (parseInt(challengerGuesses[0].value) < randomNumber) {
-      guessHint[0].innerText = 'Too Low!'
+      guessHint[0].innerText = 'Too Low!';
     } else if (parseInt(challengerGuesses[0].value) > randomNumber) {
-      guessHint[0].innerText = 'Too High!'
+      guessHint[0].innerText = 'Too High!';
     } else {
-      guessHint[0].innerText = 'BOOM BABY!'
-      gameWinner(challengerNames[0].value)
+      guessHint[0].innerText = 'BOOM BABY!';
+      gameWinner(challengerNames[0].value);
     }
   }
 
   function checkGuess2() {
     if (parseInt(challengerGuesses[1].value) < randomNumber) {
-      guessHint[1].innerText = 'Too Low!'
+      guessHint[1].innerText = 'Too Low!';
     } else if (parseInt(challengerGuesses[1].value) > randomNumber) {
-      guessHint[1].innerText = 'Too High!'
+      guessHint[1].innerText = 'Too High!';
     } else {
-      guessHint[1].innerText = 'BOOM BABY!'
+      guessHint[1].innerText = 'BOOM BABY!';
       gameWinner(challengerNames[1].value)
     }
   }
