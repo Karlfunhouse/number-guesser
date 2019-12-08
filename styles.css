@@ -228,7 +228,7 @@ h4 {
   padding: 5px 0;
   align-content: center;
   border-color: #aeaeae;
-  display: relative;
+  text-transform: uppercase;
 }
 
 .challenger-names {
@@ -252,10 +252,6 @@ h4 {
   display: flex;
   justify-content: flex-start;
   margin: 0;
-}
-
-.challenger-names h4 {
-  text-transform: uppercase;
 }
 
 .challenger2-name {
@@ -309,11 +305,11 @@ h4 {
 .close-button {
   background-image: url('x-mark-3-512.png');
   background-size: 100%;
+  background-repeat: no-repeat;
   color: white;
   border: none;
   width: 20px;
   height: 20px;
   font-size: 80%;
   margin-left: 15%;
-
 }
