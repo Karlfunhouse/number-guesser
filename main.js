@@ -57,8 +57,8 @@
   function setRange() {
     rangeView[0].innerText = minRange.value;
     rangeView[1].innerText = maxRange.value;
-    var min = parseInt(minRange.value || 1);
-    var max = parseInt(maxRange.value || 100);
+    var min = parseInt(minRange.value);
+    var max = parseInt(maxRange.value);
     randomNumber = Math.round(Math.random() * (max - min) + min);
     minRange.value = '';
     maxRange.value = '';
