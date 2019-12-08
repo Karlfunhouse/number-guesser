@@ -99,11 +99,11 @@
 
   function clearFields() {
     if (challengerNames[0].hasAttribute('disabled')) {
-      challengerInputField[1].value = ' '
-      challengerInputField[3].value = ' '
+      challengerInputField[1].value = ''
+      challengerInputField[3].value = ''
     } else {
       for (var i = 0; i < challengerInputField.length; i++) {
-        challengerInputField[i].value = ' '
+        challengerInputField[i].value = ''
       }
     }
 
@@ -111,7 +111,6 @@
   }
 
   function displayChallengerInputs() {
-    debugger
     playerOneDisplay.innerText = challengerNames[0].value;
     playerTwoDisplay.innerText = challengerNames[1].value;
     disableInput()
@@ -123,16 +122,21 @@
   }
 
   function guessErrorMessage() {
-    debugger
     console.log(maxNumber)
     if (parseInt(challengerGuesses[0].value) > maxNumber ||
         parseInt(challengerGuesses[0].value) < minNumber) {
-          guessOneDisplay.innerText = 'THAT\'S A DUMB GUESS';
+          guessOneDisplay.innerText = 'N/A';
+          if (numberOfGuesses !== 0) {
+              numberOfGuesses -= 1;
+          };
     } else {
       guessOneDisplay.innerText = challengerGuesses[0].value;
     } if (parseInt(challengerGuesses[1].value) > maxNumber ||
         parseInt(challengerGuesses[1].value) < minNumber){
-          guessTwoDisplay.innerText = 'THAT\'S A DUMB GUESS';
+          guessTwoDisplay.innerText = 'N/A';
+          if (numberOfGuesses !== 0) {
+              numberOfGuesses -= 1;
+          };
     } else {
       guessTwoDisplay.innerText = challengerGuesses[1].value;
     }
