@@ -82,9 +82,11 @@
       if (parseInt(maxRange.value) < parseInt(minRange.value)) {
             errorMessage.style.display = ('initial')
             updateButton.setAttribute('disabled', true);
+            maxRange.classList.add('error-box');
       } else {
         updateButton.removeAttribute('disabled');
         errorMessage.style.display = ('none');
+        maxRange.classList.remove('error-box');
       }
     }
   }
