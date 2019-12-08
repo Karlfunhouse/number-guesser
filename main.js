@@ -17,6 +17,7 @@
   var inputForRange = document.querySelector('#set-range-box');
   var winningSide = document.querySelector('#winning-side');
   var gameResetButton = document.querySelector('#reset-button');
+  var errorMessage = document.querySelector('.error');
   var numberOfGuesses = 0;
   var deleteWinnerCard;
   var randomNumber = createNumber();
@@ -78,9 +79,11 @@
   function enableUpdateButton() {
     if (minRange.value.length !== 0 &&
       maxRange.value.length !== 0) {
+      if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+            errorMessage.style.display = ('initial')
+      }
       updateButton.removeAttribute('disabled');
-    } else {
-      updateButton.setAttribute('disabled', true);
+
     }
   }
 
@@ -105,9 +108,9 @@
     playerOneDisplay.innerText = challengerNames[0].value;
     playerTwoDisplay.innerText = challengerNames[1].value;
     disableInput()
-    checkGuesses()
     guessOneDisplay.innerText = challengerGuesses[0].value;
     guessTwoDisplay.innerText = challengerGuesses[1].value;
+    checkGuesses()
     clearFields()
     disableButtons()
     gameResetButton.removeAttribute('disabled')
