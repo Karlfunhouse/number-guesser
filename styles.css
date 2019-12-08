@@ -145,6 +145,12 @@ h1 {
 
 .error {
   display: none;
+  padding-left: 20px;
+  z-index: 3;
+}
+
+.error-box {
+  border-color: #dd1792;
 }
 
 img {
@@ -198,7 +204,7 @@ img {
 
 .game-button:hover,
 .game-button:active {
-  background-color:#dd1792;
+  background-color: #dd1792;
 }
 
 .game-button:disabled {
