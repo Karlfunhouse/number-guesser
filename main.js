@@ -21,6 +21,8 @@
   var numberOfGuesses = 0;
   var deleteWinnerCard;
   var randomNumber = createNumber();
+  var minNumber = 0;
+  var maxNumber = 100;
 
   function createNumber() {
     return Math.round(Math.random() * 100);
@@ -58,9 +60,9 @@
   function setRange() {
     rangeView[0].innerText = minRange.value;
     rangeView[1].innerText = maxRange.value;
-    var min = parseInt(minRange.value);
-    var max = parseInt(maxRange.value);
-    randomNumber = Math.round(Math.random() * (max - min) + min);
+    minNumber = parseInt(minRange.value);
+    maxNumber = parseInt(maxRange.value);
+    randomNumber = Math.round(Math.random() * (maxNumber - minNumber) + minNumber);
     minRange.value = '';
     maxRange.value = '';
   }
@@ -109,16 +111,33 @@
   }
 
   function displayChallengerInputs() {
+    debugger
     playerOneDisplay.innerText = challengerNames[0].value;
     playerTwoDisplay.innerText = challengerNames[1].value;
     disableInput()
-    guessOneDisplay.innerText = challengerGuesses[0].value;
-    guessTwoDisplay.innerText = challengerGuesses[1].value;
+    guessErrorMessage()
     checkGuesses()
     clearFields()
     disableButtons()
     gameResetButton.removeAttribute('disabled')
   }
+
+  function guessErrorMessage() {
+    debugger
+    console.log(maxNumber)
+    if (parseInt(challengerGuesses[0].value) > maxNumber ||
+        parseInt(challengerGuesses[0].value) < minNumber) {
+          guessOneDisplay.innerText = 'THAT\'S A DUMB GUESS';
+    } else {
+      guessOneDisplay.innerText = challengerGuesses[0].value;
+    } if (parseInt(challengerGuesses[1].value) > maxNumber ||
+        parseInt(challengerGuesses[1].value) < minNumber){
+          guessTwoDisplay.innerText = 'THAT\'S A DUMB GUESS';
+    } else {
+      guessTwoDisplay.innerText = challengerGuesses[1].value;
+    }
+  }
+
 
   function checkGuesses() {
     numberOfGuesses += 2;
@@ -127,7 +146,7 @@
   }
 
   function checkGuess1() {
-    if (parseInt(challengerGuesses[0].value) < randomNumber) {
+      if (parseInt(challengerGuesses[0].value) < randomNumber) {
       guessHint[0].innerText = 'Too Low!';
     } else if (parseInt(challengerGuesses[0].value) > randomNumber) {
       guessHint[0].innerText = 'Too High!';
