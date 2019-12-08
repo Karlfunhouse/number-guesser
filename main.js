@@ -15,10 +15,11 @@
   var rangeView = document.querySelectorAll('.range-view-js');
   var updateButton = document.querySelector('#update-button');
   var inputForRange = document.querySelector('#set-range-box');
-  var randomNumber = createNumber();
   var winningSide = document.querySelector('#winning-side');
+  var gameResetButton = document.querySelector('#reset-button')
   var numberOfGuesses = 0;
   var deleteWinnerCard
+  var randomNumber = createNumber();
 
   function createNumber() {
     return Math.round(Math.random() * 100);
@@ -28,6 +29,25 @@
     submitButton.setAttribute('disabled', true);
     updateButton.setAttribute('disabled', true);
     clearButton.setAttribute('disabled', true);
+  }
+
+  function newGame() {
+    setRange()
+    minRange.removeAttribute('disabled');
+    maxRange.removeAttribute('disabled');
+  }
+
+  function resetGame() {
+    minRange.value = 0
+    maxRange.value = 100
+    newGame()
+    minRange.value = ''
+    maxRange.value = ''
+    for (var i = 0; i < challengerNames.length; i++) {
+      challengerNames[i].removeAttribute('disabled');
+    };
+    clearFields()
+    gameResetButton.setAttribute('disabled', true)
   }
 
   function disableInput() {
@@ -43,8 +63,8 @@
   function setRange() {
     rangeView[0].innerText = minRange.value;
     rangeView[1].innerText = maxRange.value;
-    var min = parseInt(minRange.value)
-    var max = parseInt(maxRange.value)
+    var min = parseInt(minRange.value || 1)
+    var max = parseInt(maxRange.value || 100)
     randomNumber = Math.round(Math.random() * (max - min) + min);
   }
 
@@ -94,6 +114,7 @@
     guessTwoDisplay.innerText = challengerGuesses[1].value;
     clearFields()
     disableButtons()
+    gameResetButton.removeAttribute('disabled')
   }
 
   function checkGuesses() {
@@ -149,7 +170,7 @@
     deleteWinnerCard = document.querySelector('.close-button');
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
-    console.log(deleteWinnerCard);
+    newGame()
   }
 
   function closeCard(event) {
@@ -165,4 +186,5 @@
   inputForGame.addEventListener('input', enableClearButton);
   inputForGame.addEventListener('input', enableSubmitButton);
   clearButton.addEventListener('click', clearFields);
+  gameResetButton.addEventListener('click', resetGame)
 }());

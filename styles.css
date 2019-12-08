@@ -309,6 +309,7 @@ h4 {
 .close-button {
   background-image: url('x-mark-3-512.png');
   background-size: 100%;
+  background-repeat: no-repeat;
   color: white;
   border: none;
   width: 20px;
