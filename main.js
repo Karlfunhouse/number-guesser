@@ -31,16 +31,12 @@
     clearButton.setAttribute('disabled', true);
   }
 
-  function newGame() {
-    setRange()
-    minRange.removeAttribute('disabled');
-    maxRange.removeAttribute('disabled');
-  }
-
   function resetGame() {
     minRange.value = 0;
     maxRange.value = 100;
-    newGame();
+    setRange()
+    minRange.removeAttribute('disabled');
+    maxRange.removeAttribute('disabled');
     for (var i = 0; i < challengerNames.length; i++) {
       challengerNames[i].removeAttribute('disabled');
     };
@@ -170,7 +166,7 @@
     deleteWinnerCard = document.querySelector('.close-button');
     winnerCard.innerHTML = winnerInfo
     winningSide.prepend(winnerCard)
-    newGame()
+    resetGame()
   }
 
   function closeCard(event) {
