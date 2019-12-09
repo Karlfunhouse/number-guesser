@@ -22,9 +22,26 @@ var deleteWinnerCard;
 var randomNumber = createNumber();
 var minNumber = 0;
 var maxNumber = 100;
+var startTime = null
+var totalTime
 
 function createNumber() {
   return Math.round(Math.random() * 100);
+}
+
+function startTimer() {
+  if (startTime === null) {
+    startTime = new Date().getTime();
+  }
+
+}
+
+function calculateTimer() {
+  var elapsedTime = (new Date().getTime() - startTime)
+  var minutes = Math.floor(elapsedTime / 60000);
+  var seconds = ((elapsedTime % 60000) / 1000).toFixed(0);
+  startTime = null;
+  totalTime = minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
 function disableButtons() {
