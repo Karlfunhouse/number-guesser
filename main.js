@@ -83,15 +83,19 @@
   function enableUpdateButton() {
     if (minRange.value.length !== 0 &&
       maxRange.value.length !== 0) {
-      if (parseInt(maxRange.value) < parseInt(minRange.value)) {
-            errorMessage[0].style.display = ('initial')
-            updateButton.setAttribute('disabled', true);
-            maxRange.classList.add('error-box');
-      } else {
-        updateButton.removeAttribute('disabled');
-        errorMessage[0].style.display = ('none');
-        maxRange.classList.remove('error-box');
-      }
+      checkMaxGreaterMin()
+    }
+  }
+
+  function checkMaxGreaterMin() {
+    if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+          errorMessage[0].style.display = ('initial')
+          updateButton.setAttribute('disabled', true);
+          maxRange.classList.add('error-box');
+    } else {
+      updateButton.removeAttribute('disabled');
+      errorMessage[0].style.display = ('none');
+      maxRange.classList.remove('error-box');
     }
   }
 
@@ -113,7 +117,6 @@
   }
 
   function displayChallengerInputs() {
-    debugger
     playerOneDisplay.innerText = challengerNames[0].value;
     playerTwoDisplay.innerText = challengerNames[1].value;
     guessOneDisplay.innerText = challengerGuesses[0].value;
@@ -149,7 +152,7 @@
     }
   }
 
-  function checkGuess1(who, display) {
+  function checkGuess(who, display) {
       if (parseInt(who.value) < randomNumber) {
       display.innerText = 'Too Low!';
     } else if (parseInt(who.value) > randomNumber) {
