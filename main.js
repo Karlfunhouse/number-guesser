@@ -1,4 +1,3 @@
-(function() {
   var clearButton = document.querySelector('#clear-button');
   var challengerInputField = document.querySelectorAll('.game-input');
   var challengerGuesses = document.querySelectorAll('.guess');
@@ -205,4 +204,3 @@
   inputForGame.addEventListener('input', enableSubmitButton);
   clearButton.addEventListener('click', clearFields);
   gameResetButton.addEventListener('click', resetGame)
-}());
