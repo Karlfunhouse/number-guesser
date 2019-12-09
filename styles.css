@@ -114,12 +114,13 @@ h1 {
 
 .right-side {
   background-color: #d0d2d3;
+  height: 100vh;
   width: 50%;
   border-left: 2px solid #BFBFBF;
   display: flex;
   justify-content: flex-start;
   padding: .75% 0;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .game-box {
@@ -128,7 +129,6 @@ h1 {
   padding: 2%;
   border: 2px solid #ededed;
   margin: 10px;
-
 }
 
 .content-box {
