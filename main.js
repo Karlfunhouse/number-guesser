@@ -73,6 +73,7 @@
       challengerInputField[2].value.length !== 0 &&
       challengerInputField[3].value.length !== 0) {
       submitButton.removeAttribute('disabled');
+      guessErrorMessage()
     } else {
       submitButton.setAttribute('disabled', true);
     }
@@ -114,7 +115,6 @@
     playerOneDisplay.innerText = challengerNames[0].value;
     playerTwoDisplay.innerText = challengerNames[1].value;
     disableInput()
-    guessErrorMessage()
     checkGuesses()
     clearFields()
     disableButtons()
@@ -125,26 +125,18 @@
     console.log(maxNumber)
     if (parseInt(challengerGuesses[0].value) > maxNumber ||
         parseInt(challengerGuesses[0].value) < minNumber) {
-          guessOneDisplay.innerText = 'N/A';
-          if (numberOfGuesses !== 0) {
-              numberOfGuesses -= 1;
-          };
-    } else {
-      guessOneDisplay.innerText = challengerGuesses[0].value;
+          submitButton.setAttribute('disabled', true);
     } if (parseInt(challengerGuesses[1].value) > maxNumber ||
         parseInt(challengerGuesses[1].value) < minNumber){
-          guessTwoDisplay.innerText = 'N/A';
-          if (numberOfGuesses !== 0) {
-              numberOfGuesses -= 1;
-          };
-    } else {
-      guessTwoDisplay.innerText = challengerGuesses[1].value;
+          submitButton.setAttribute('disabled', true);
     }
   }
 
 
   function checkGuesses() {
     numberOfGuesses += 2;
+    guessOneDisplay.innerText = challengerGuesses[0].value;
+    guessTwoDisplay.innerText = challengerGuesses[1].value;
     checkGuess1();
     checkGuess2();
   }
