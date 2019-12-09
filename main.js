@@ -140,7 +140,7 @@
   function checkGuesses() {
     numberOfGuesses += 2;
     var guess1 = checkGuess1();
-    var guess2 = checkGuess2();
+    var guess2 = checkGuess1();
     if (guess1 == randomNumber) {
       gameWinner(challengerNames[0].value);
     } else if (guess2 == randomNumber) {
@@ -148,28 +148,28 @@
     }
   }
 
-  function checkGuess1() {
-      if (parseInt(challengerGuesses[0].value) < randomNumber) {
-      guessHint[0].innerText = 'Too Low!';
-    } else if (parseInt(challengerGuesses[0].value) > randomNumber) {
-      guessHint[0].innerText = 'Too High!';
+  function checkGuess1(who, display) {
+      if (parseInt(who.value) < randomNumber) {
+      display.innerText = 'Too Low!';
+    } else if (parseInt(who.value) > randomNumber) {
+      display.innerText = 'Too High!';
     } else {
-      guessHint[0].innerText = 'BOOM BABY!';
+      display.innerText = 'BOOM BABY!';
     }
-    return parseInt(challengerGuesses[0].value);
+    return parseInt(who.value);
   }
 
-  function checkGuess2() {
-    console.log(randomNumber);
-    if (parseInt(challengerGuesses[1].value) < randomNumber) {
-      guessHint[1].innerText = 'Too Low!';
-    } else if (parseInt(challengerGuesses[1].value) > randomNumber) {
-      guessHint[1].innerText = 'Too High!';
-    } else {
-      guessHint[1].innerText = 'BOOM BABY!';
-    }
-    return parseInt(challengerGuesses[1].value);
-  }
+  // function checkGuess2() {
+  //   console.log(randomNumber);
+  //   if (parseInt(challengerGuesses[1].value) < randomNumber) {
+  //     guessHint[1].innerText = 'Too Low!';
+  //   } else if (parseInt(challengerGuesses[1].value) > randomNumber) {
+  //     guessHint[1].innerText = 'Too High!';
+  //   } else {
+  //     guessHint[1].innerText = 'BOOM BABY!';
+  //   }
+  //   return parseInt(challengerGuesses[1].value);
+  // }
 
 
   function gameWinner(winner) {
