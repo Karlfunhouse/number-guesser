@@ -41,7 +41,7 @@ function calculateTimer() {
   var minutes = Math.floor(elapsedTime / 60000);
   var seconds = ((elapsedTime % 60000) / 1000).toFixed(0);
   startTime = null;
-  totalTime = minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  totalTime = `${minutes} MINUTES ${seconds} SECONDS`
 }
 
 function disableButtons() {
@@ -59,7 +59,7 @@ function resetGame() {
   for (var i = 0; i < challengerNames.length; i++) {
     challengerNames[i].removeAttribute('disabled');
   };
-  clearFields();
+  clearInputFields();
   gameResetButton.setAttribute('disabled', true);
 }
 
@@ -119,7 +119,7 @@ function enableClearButton() {
   clearButton.removeAttribute('disabled');
 }
 
-function clearFields() {
+function clearInputFields() {
   if (challengerNames[0].hasAttribute('disabled')) {
     challengerInputField[1].value = ''
     challengerInputField[3].value = ''
@@ -133,15 +133,20 @@ function clearFields() {
 }
 
 function displayChallengerInputs() {
+  startTimer()
+  changeDisplays()
+  disableInput()
+  checkGuesses()
+  clearInputFields()
+  disableButtons()
+  gameResetButton.removeAttribute('d isabled')
+}
+
+function changeDisplays() {
   playerOneDisplay.innerText = challengerNames[0].value;
   playerTwoDisplay.innerText = challengerNames[1].value;
   guessOneDisplay.innerText = challengerGuesses[0].value;
   guessTwoDisplay.innerText = challengerGuesses[1].value;
-  disableInput()
-  checkGuesses()
-  clearFields()
-  disableButtons()
-  gameResetButton.removeAttribute('d isabled')
 }
 
 function guessErrorMessage() {
@@ -219,5 +224,5 @@ updateButton.addEventListener('click', setRange);
 submitButton.addEventListener('click', displayChallengerInputs);
 inputForGame.addEventListener('input', enableClearButton);
 inputForGame.addEventListener('input', enableSubmitButton);
-clearButton.addEventListener('click', clearFields);
+clearButton.addEventListener('click', clearInputFields);
 gameResetButton.addEventListener('click', resetGame)
