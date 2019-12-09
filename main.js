@@ -17,9 +17,12 @@
   var inputForRange = document.querySelector('#set-range-box');
   var winningSide = document.querySelector('#winning-side');
   var gameResetButton = document.querySelector('#reset-button');
+  var errorMessage = document.querySelectorAll('.error');
   var numberOfGuesses = 0;
   var deleteWinnerCard;
   var randomNumber = createNumber();
+  var minNumber = 0;
+  var maxNumber = 100;
 
   function createNumber() {
     return Math.round(Math.random() * 100);
@@ -57,9 +60,9 @@
   function setRange() {
     rangeView[0].innerText = minRange.value;
     rangeView[1].innerText = maxRange.value;
-    var min = parseInt(minRange.value);
-    var max = parseInt(maxRange.value);
-    randomNumber = Math.round(Math.random() * (max - min) + min);
+    minNumber = parseInt(minRange.value);
+    maxNumber = parseInt(maxRange.value);
+    randomNumber = Math.round(Math.random() * (maxNumber - minNumber) + minNumber);
     minRange.value = '';
     maxRange.value = '';
   }
@@ -70,6 +73,7 @@
       challengerInputField[2].value.length !== 0 &&
       challengerInputField[3].value.length !== 0) {
       submitButton.removeAttribute('disabled');
+      guessErrorMessage()
     } else {
       submitButton.setAttribute('disabled', true);
     }
@@ -78,9 +82,15 @@
   function enableUpdateButton() {
     if (minRange.value.length !== 0 &&
       maxRange.value.length !== 0) {
-      updateButton.removeAttribute('disabled');
-    } else {
-      updateButton.setAttribute('disabled', true);
+      if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+            errorMessage[0].style.display = ('initial')
+            updateButton.setAttribute('disabled', true);
+            maxRange.classList.add('error-box');
+      } else {
+        updateButton.removeAttribute('disabled');
+        errorMessage[0].style.display = ('none');
+        maxRange.classList.remove('error-box');
+      }
     }
   }
 
@@ -90,11 +100,11 @@
 
   function clearFields() {
     if (challengerNames[0].hasAttribute('disabled')) {
-      challengerInputField[1].value = ' '
-      challengerInputField[3].value = ' '
+      challengerInputField[1].value = ''
+      challengerInputField[3].value = ''
     } else {
       for (var i = 0; i < challengerInputField.length; i++) {
-        challengerInputField[i].value = ' '
+        challengerInputField[i].value = ''
       }
     }
 
@@ -106,21 +116,35 @@
     playerTwoDisplay.innerText = challengerNames[1].value;
     disableInput()
     checkGuesses()
-    guessOneDisplay.innerText = challengerGuesses[0].value;
-    guessTwoDisplay.innerText = challengerGuesses[1].value;
     clearFields()
     disableButtons()
     gameResetButton.removeAttribute('disabled')
   }
 
+  function guessErrorMessage() {
+    console.log(maxNumber)
+    if (parseInt(challengerGuesses[0].value) > maxNumber ||
+        parseInt(challengerGuesses[0].value) < minNumber ||
+        parseInt(challengerGuesses[1].value) > maxNumber ||
+        parseInt(challengerGuesses[1].value) < minNumber) {
+        submitButton.setAttribute('disabled', true);
+        errorMessage[1].style.display = ('initial');
+    } else {
+      errorMessage[1].style.display = ('none');
+    }
+  }
+
+
   function checkGuesses() {
     numberOfGuesses += 2;
+    guessOneDisplay.innerText = challengerGuesses[0].value;
+    guessTwoDisplay.innerText = challengerGuesses[1].value;
     checkGuess1();
     checkGuess2();
   }
 
   function checkGuess1() {
-    if (parseInt(challengerGuesses[0].value) < randomNumber) {
+      if (parseInt(challengerGuesses[0].value) < randomNumber) {
       guessHint[0].innerText = 'Too Low!';
     } else if (parseInt(challengerGuesses[0].value) > randomNumber) {
       guessHint[0].innerText = 'Too High!';

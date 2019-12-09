@@ -114,12 +114,13 @@ h1 {
 
 .right-side {
   background-color: #d0d2d3;
+  height: 100vh;
   width: 50%;
   border-left: 2px solid #BFBFBF;
   display: flex;
   justify-content: flex-start;
   padding: .75% 0;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .game-box {
@@ -128,7 +129,6 @@ h1 {
   padding: 2%;
   border: 2px solid #ededed;
   margin: 10px;
-
 }
 
 .content-box {
@@ -141,6 +141,23 @@ h1 {
 
 .max-box {
   margin-left: 20px;
+}
+
+.error {
+  display: none;
+  text-align: center;
+  z-index: 3;
+  font-size: 14px;
+  padding-left: 8px;
+}
+
+.error-box {
+  border-color: #dd1792;
+}
+
+img {
+  height: 15px;
+  width: 15px;
 }
 
 .range-box {
@@ -158,7 +175,7 @@ h1 {
   display: flex;
   justify-content: center;
   padding: 0 30px;
-  height: 70%;
+  height: 30px;
   margin: 25px 0 0 25%;
 }
 
@@ -185,6 +202,11 @@ h1 {
   color: white;
   font-weight: bold;
   width: fit-content;
+}
+
+.game-button:hover,
+.game-button:active {
+  background-color: #dd1792;
 }
 
 .game-button:disabled {

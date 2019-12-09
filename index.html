@@ -25,7 +25,8 @@
             </section>
             <section class="content-box max-box">
               <label class="range-input" for="max-range">Max Range</label>
-              <input id="max-range-input" type="number" class="range-input" name="maxRange"/>
+              <input id="max-range-input" type="number" class="range-input " name="maxRange"/>
+              <p class="error magenta"><img src="error-icon.svg"/> Must be less than Min!</p>
             </section>
             <section class="content-box">
               <input type="button" class="game-button range-button" id="update-button" disabled value="UPDATE" />
@@ -53,6 +54,7 @@
               <label for="clear-button" class="hide">CLEAR FORM</label>
               <input type="button" id="clear-button" disabled class="play-input game-button" name="" value="CLEAR FORM">
             </section>
+            <p class="error magenta"><img src="error-icon.svg"/>You're outside the Defined Range!</p>
           </form>
         </section>
         <section class="game-box">
