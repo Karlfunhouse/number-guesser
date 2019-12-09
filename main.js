@@ -17,7 +17,7 @@
   var inputForRange = document.querySelector('#set-range-box');
   var winningSide = document.querySelector('#winning-side');
   var gameResetButton = document.querySelector('#reset-button');
-  var errorMessage = document.querySelector('.error');
+  var errorMessage = document.querySelectorAll('.error');
   var numberOfGuesses = 0;
   var deleteWinnerCard;
   var randomNumber = createNumber();
@@ -83,12 +83,12 @@
     if (minRange.value.length !== 0 &&
       maxRange.value.length !== 0) {
       if (parseInt(maxRange.value) < parseInt(minRange.value)) {
-            errorMessage.style.display = ('initial')
+            errorMessage[0].style.display = ('initial')
             updateButton.setAttribute('disabled', true);
             maxRange.classList.add('error-box');
       } else {
         updateButton.removeAttribute('disabled');
-        errorMessage.style.display = ('none');
+        errorMessage[0].style.display = ('none');
         maxRange.classList.remove('error-box');
       }
     }
@@ -124,11 +124,13 @@
   function guessErrorMessage() {
     console.log(maxNumber)
     if (parseInt(challengerGuesses[0].value) > maxNumber ||
-        parseInt(challengerGuesses[0].value) < minNumber) {
-          submitButton.setAttribute('disabled', true);
-    } if (parseInt(challengerGuesses[1].value) > maxNumber ||
-        parseInt(challengerGuesses[1].value) < minNumber){
-          submitButton.setAttribute('disabled', true);
+        parseInt(challengerGuesses[0].value) < minNumber ||
+        parseInt(challengerGuesses[1].value) > maxNumber ||
+        parseInt(challengerGuesses[1].value) < minNumber) {
+        submitButton.setAttribute('disabled', true);
+        errorMessage[1].style.display = ('initial');
+    } else {
+      errorMessage[1].style.display = ('none');
     }
   }
 
