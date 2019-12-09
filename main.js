@@ -116,6 +116,8 @@
     playerTwoDisplay.innerText = challengerNames[1].value;
     disableInput()
     checkGuesses()
+    guessOneDisplay.innerText = challengerGuesses[0].value;
+    guessTwoDisplay.innerText = challengerGuesses[1].value;
     clearFields()
     disableButtons()
     gameResetButton.removeAttribute('disabled')
@@ -137,8 +139,6 @@
 
   function checkGuesses() {
     numberOfGuesses += 2;
-    guessOneDisplay.innerText = challengerGuesses[0].value;
-    guessTwoDisplay.innerText = challengerGuesses[1].value;
     checkGuess1();
     checkGuess2();
   }
