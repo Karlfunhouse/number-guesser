@@ -139,8 +139,8 @@
 
   function checkGuesses() {
     numberOfGuesses += 2;
-    var guess1 = checkGuess1();
-    var guess2 = checkGuess1();
+    var guess1 = checkGuess1(challengerGuesses[0], guessHint[0]);
+    var guess2 = checkGuess1(challengerGuesses[1], guessHint[1]);
     if (guess1 == randomNumber) {
       gameWinner(challengerNames[0].value);
     } else if (guess2 == randomNumber) {
