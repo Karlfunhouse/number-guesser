@@ -145,8 +145,10 @@ h1 {
 
 .error {
   display: none;
-  padding-left: 20px;
+  text-align: center;
   z-index: 3;
+  font-size: 14px;
+  padding-left: 8px;
 }
 
 .error-box {
