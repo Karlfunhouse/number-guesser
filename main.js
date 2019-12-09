@@ -113,15 +113,16 @@
   }
 
   function displayChallengerInputs() {
+    debugger
     playerOneDisplay.innerText = challengerNames[0].value;
     playerTwoDisplay.innerText = challengerNames[1].value;
-    disableInput()
-    checkGuesses()
     guessOneDisplay.innerText = challengerGuesses[0].value;
     guessTwoDisplay.innerText = challengerGuesses[1].value;
+    disableInput()
+    checkGuesses()
     clearFields()
     disableButtons()
-    gameResetButton.removeAttribute('disabled')
+    gameResetButton.removeAttribute('d isabled')
   }
 
   function guessErrorMessage() {
@@ -139,8 +140,8 @@
 
   function checkGuesses() {
     numberOfGuesses += 2;
-    var guess1 = checkGuess1(challengerGuesses[0], guessHint[0]);
-    var guess2 = checkGuess1(challengerGuesses[1], guessHint[1]);
+    var guess1 = checkGuess(challengerGuesses[0], guessHint[0]);
+    var guess2 = checkGuess(challengerGuesses[1], guessHint[1]);
     if (guess1 == randomNumber) {
       gameWinner(challengerNames[0].value);
     } else if (guess2 == randomNumber) {
@@ -158,19 +159,6 @@
     }
     return parseInt(who.value);
   }
-
-  // function checkGuess2() {
-  //   console.log(randomNumber);
-  //   if (parseInt(challengerGuesses[1].value) < randomNumber) {
-  //     guessHint[1].innerText = 'Too Low!';
-  //   } else if (parseInt(challengerGuesses[1].value) > randomNumber) {
-  //     guessHint[1].innerText = 'Too High!';
-  //   } else {
-  //     guessHint[1].innerText = 'BOOM BABY!';
-  //   }
-  //   return parseInt(challengerGuesses[1].value);
-  // }
-
 
   function gameWinner(winner) {
     var winnerCard = document.createElement('section')
