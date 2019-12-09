@@ -63,6 +63,7 @@
     minNumber = parseInt(minRange.value);
     maxNumber = parseInt(maxRange.value);
     randomNumber = Math.round(Math.random() * (maxNumber - minNumber) + minNumber);
+    console.log(randomNumber);
     minRange.value = '';
     maxRange.value = '';
   }
@@ -124,7 +125,6 @@
   }
 
   function guessErrorMessage() {
-    console.log(maxNumber)
     if (parseInt(challengerGuesses[0].value) > maxNumber ||
         parseInt(challengerGuesses[0].value) < minNumber ||
         parseInt(challengerGuesses[1].value) > maxNumber ||
@@ -139,8 +139,13 @@
 
   function checkGuesses() {
     numberOfGuesses += 2;
-    checkGuess1();
-    checkGuess2();
+    var guess1 = checkGuess1();
+    var guess2 = checkGuess2();
+    if (guess1 == randomNumber) {
+      gameWinner(challengerNames[0].value);
+    } else if (guess2 == randomNumber) {
+      gameWinner(challengerNames[1].value);
+    }
   }
 
   function checkGuess1() {
@@ -150,20 +155,22 @@
       guessHint[0].innerText = 'Too High!';
     } else {
       guessHint[0].innerText = 'BOOM BABY!';
-      gameWinner(challengerNames[0].value);
     }
+    return parseInt(challengerGuesses[0].value);
   }
 
   function checkGuess2() {
+    console.log(randomNumber);
     if (parseInt(challengerGuesses[1].value) < randomNumber) {
       guessHint[1].innerText = 'Too Low!';
     } else if (parseInt(challengerGuesses[1].value) > randomNumber) {
       guessHint[1].innerText = 'Too High!';
     } else {
       guessHint[1].innerText = 'BOOM BABY!';
-      gameWinner(challengerNames[1].value)
     }
+    return parseInt(challengerGuesses[1].value);
   }
+
 
   function gameWinner(winner) {
     var winnerCard = document.createElement('section')
