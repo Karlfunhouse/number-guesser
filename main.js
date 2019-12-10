@@ -90,7 +90,6 @@ function enableSubmitButton() {
     challengerInputField[2].value.length !== 0 &&
     challengerInputField[3].value.length !== 0) {
     submitButton.removeAttribute('disabled');
-    guessErrorMessage()
   } else {
     submitButton.setAttribute('disabled', true);
   }
@@ -104,7 +103,6 @@ function enableUpdateButton() {
 }
 
 function checkMaxGreaterMin() {
-  debugger
   if (parseInt(maxRange.value) < parseInt(minRange.value)) {
         errorMessage[0].style.display = ('initial')
         updateButton.setAttribute('disabled', true);
@@ -117,6 +115,7 @@ function checkMaxGreaterMin() {
 }
 
 function enableClearButton() {
+  guessErrorMessage()
   clearButton.removeAttribute('disabled');
 }
 
@@ -151,7 +150,6 @@ function changeDisplays() {
 }
 
 function guessErrorMessage() {
-  debugger
   if (parseInt(challengerGuesses[0].value) > maxNumber ||
       parseInt(challengerGuesses[0].value) < minNumber ||
       parseInt(challengerGuesses[1].value) > maxNumber ||
