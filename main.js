@@ -1,10 +1,10 @@
-var challengerGuesses = document.querySelectorAll('.guess');
-var challengerInputField = document.querySelectorAll('.game-input');
-var challengerNames = document.querySelectorAll('.player');
+var challengerGuesses = document.querySelectorAll('.guess-js');
+var challengerInputField = document.querySelectorAll('.game-input-js');
+var challengerNames = document.querySelectorAll('.player-js');
 var clearButton = document.querySelector('#clear-button');
-var errorMessage = document.querySelectorAll('.error');
+var errorMessage = document.querySelectorAll('.error-js');
 var gameResetButton = document.querySelector('#reset-button');
-var guessHint = document.querySelectorAll('.guess-clue');
+var guessHint = document.querySelectorAll('.guess-clue-js');
 var guessOneDisplay = document.querySelector('#guess-1-in-game');
 var guessTwoDisplay = document.querySelector('#guess-2-in-game');
 var inputForGame = document.querySelector('#input-for-game');
@@ -104,6 +104,7 @@ function enableUpdateButton() {
 }
 
 function checkMaxGreaterMin() {
+  debugger
   if (parseInt(maxRange.value) < parseInt(minRange.value)) {
         errorMessage[0].style.display = ('initial')
         updateButton.setAttribute('disabled', true);
@@ -139,7 +140,7 @@ function displayChallengerInputs() {
   checkGuesses()
   clearInputFields()
   disableButtons()
-  gameResetButton.removeAttribute('d isabled')
+  gameResetButton.removeAttribute('disabled')
 }
 
 function changeDisplays() {
@@ -150,6 +151,7 @@ function changeDisplays() {
 }
 
 function guessErrorMessage() {
+  debugger
   if (parseInt(challengerGuesses[0].value) > maxNumber ||
       parseInt(challengerGuesses[0].value) < minNumber ||
       parseInt(challengerGuesses[1].value) > maxNumber ||
