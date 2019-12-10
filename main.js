@@ -41,7 +41,7 @@ function calculateTimer() {
   var minutes = Math.floor(elapsedTime / 60000);
   var seconds = ((elapsedTime % 60000) / 1000).toFixed(0);
   startTime = null;
-  totalTime = `${minutes} MINUTES ${seconds} SECONDS`
+  totalTime = `<span class="bold">${minutes}</span> MINUTES <span class="bold">${seconds}</span> SECONDS`
 }
 
 function disableButtons() {
@@ -185,6 +185,7 @@ function checkGuess(who, display) {
 }
 
 function gameWinner(winner) {
+  calculateTimer()
   var winnerCard = document.createElement('section')
   winnerCard.classList.add('game-box')
   winnerCard.classList.add('winner-card')
@@ -202,7 +203,7 @@ function gameWinner(winner) {
         <hr>
         <section class="card-bottom">
           <p id="guesses"><span class="bold">${numberOfGuesses}</span> GUESSES</p>
-          <p id="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
+          <p id="timer">${totalTime}</p>
           <input type="button" class="close-button" id="x-button" />
         </section>
         `
