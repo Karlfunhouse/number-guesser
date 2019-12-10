@@ -161,7 +161,6 @@ function guessErrorMessage() {
   }
 }
 
-
 function checkGuesses() {
   numberOfGuesses += 2;
   var guess1 = checkGuess(challengerGuesses[0], guessHint[0]);
