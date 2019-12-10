@@ -111,13 +111,13 @@ img {
 .left-side {
   background-color: #f7f7f7;
   width: 50%;
-  height: fit-content;
+  height: 750px;
 }
 
 .right-side {
   background-color: #d0d2d3;
   width: 50%;
-  height: 663px;
+  height: 750px;
   border-left: 2px solid #BFBFBF;
   display: flex;
   justify-content: flex-start;
