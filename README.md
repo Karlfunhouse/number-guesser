@@ -10,7 +10,10 @@ The player's names and guesses will populate in a section beneath the submit gue
 
 After a user wins, a card will populate on the right side of the screen declaring the challeneger's names, the winner's name, how many guesses it took and how long the round lasted.  These cards can be deleted by clicking on the x button in the bottom right of each card.  
 
-This is the comp we were given to recreate.  We pretty much nailed it.  
+
+If the player knows the Konami code, they might get a surprise if they enter it.  MUAHAHAHAHA
+
+This is a screen shot of our final results.  We pretty much nailed it.  
 ![alt="Screen Shot of Final Project"](Screen-Shot.png)
 
 
