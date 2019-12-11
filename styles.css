@@ -332,16 +332,16 @@ img {
   margin: 1% 0 1% 0;
   padding: 1% 4% 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 #guesses {
-  margin: 1% 10%;
+  margin: 0%;
 }
 
 #timer {
-  margin: 1% 10%;
+  margin: 0%;
 }
 
 .close-button {

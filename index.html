@@ -26,7 +26,7 @@
             <section class="content-box max-box">
               <label class="range-input" for="max-range">Max Range</label>
               <input id="max-range-input" type="number" class="range-input game-input" name="maxRange"/>
-              <p class="error magenta"><img src="error-icon.svg"/> Must be less than Min!</p>
+              <p class="error-js error magenta"><img src="error-icon.svg"/> Must be less than Min!</p>
             </section>
             <section class="content-box">
               <input type="button" class="range-button game-button" id="update-button" disabled value="UPDATE" />
@@ -37,27 +37,27 @@
           <form class="" action="index.html" method="post">
             <p>The Current Range is <span class="bold underlined range-view-js"><strong>1</strong></span> to <span class="bold underlined range-view-js"><strong>100</strong></span></p>
             <h4>Challenger 1</h4>
-                <section class="challenger-box">
-                  <section class="content-box large-content-box">
-                    <label for="player1">Name</label>
-                    <input class="game-input-js game-input player" id="player1"  type="text" name="player" />
-                  </section>
-                  <section class="content-box">
-                    <label class="guess" for="guess1">Guess</label>
-                    <input class="game-input-js game-input guess" id="guess1" type="number" name="player" />
-                  </section>
-                </section>
-            <h4>Challenger 2</h4>
-              <section class="challenger-box">
-                <section class="content-box large-content-box">
-                  <label for="player2">Name</label>
-                  <input class="game-input-js game-input player" id="player2" type="text" name="player">
-                </section>
-                <section class="content-box">
-                  <label class="guess" for="guess2">Guess</label>
-                  <input class="game-input-js game-input guess" id="guess2" type="number" name="player">
-                </section>
+            <section class="challenger-box">
+              <section class="content-box large-content-box">
+                <label for="player1">Name</label>
+                <input class="game-input game-input-js player player-js" id="player1"  type="text" name="player" />
               </section>
+              <section class="content-box">
+                <label class="guess" for="guess1">Guess</label>
+                <input class="game-input game-input-js guess guess-js" id="guess1" type="number" name="player" />
+              </section>
+            </section>
+            <h4>Challenger 2</h4>
+            <section class="challenger-box">
+              <section class="content-box large-content-box">
+                <label for="player2">Name</label>
+                <input class="game-input game-input-js player player-js" id="player2" type="text" name="player">
+              </section>
+              <section class="content-box">
+                <label class="guess" for="guess2">Guess</label>
+                <input class="game-input game-input-js guess guess-js" id="guess2" type="number" name="player">
+              </section>
+            </section>
             <section class="button-box">
               <label for="submit-button" class="hide">SUBMIT GUESS</label>
               <input type="button" id="submit-button" disabled class="play-input game-button" name="" value="SUBMIT GUESS">
@@ -66,7 +66,7 @@
               <label for="clear-button" class="hide">CLEAR FORM</label>
               <input type="button" id="clear-button" disabled class="play-input game-button" name="" value="CLEAR FORM">
             </section>
-            <p class="error magenta"><img src="error-icon.svg"/>You're outside the Defined Range!</p>
+            <p class="error-js error magenta"><img src="error-icon.svg"/>You're outside the Defined Range!</p>
           </form>
         </section>
         <section class="game-box">
@@ -76,14 +76,14 @@
               <p class="bold player-name" id="challenger-1-in-game">Challenger 1 Name</p>
               <p>current guess</p>
               <h1 id="guess-1-in-game" class="bold magenta"></h1>
-              <h4 class="guess-clue">no guesses yet</h4>
+              <h4 class="guess-clue-js">no guesses yet</h4>
             </div>
             <hr>
             <div class="player-guess">
               <p class="bold player-name" id="challenger-2-in-game">Challenger 2 Name</p>
               <p>current guess</p>
               <h1 id="guess-2-in-game" class="bold magenta"></h1>
-              <h4 class="guess-clue">no guesses yet</h4>
+              <h4 class="guess-clue-js">no guesses yet</h4>
             </div>
           </section>
         </section>

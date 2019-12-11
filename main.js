@@ -1,10 +1,10 @@
-var challengerGuesses = document.querySelectorAll('.guess');
-var challengerInputField = document.querySelectorAll('.game-input');
-var challengerNames = document.querySelectorAll('.player');
+var challengerGuesses = document.querySelectorAll('.guess-js');
+var challengerInputField = document.querySelectorAll('.game-input-js');
+var challengerNames = document.querySelectorAll('.player-js');
 var clearButton = document.querySelector('#clear-button');
-var errorMessage = document.querySelectorAll('.error');
+var errorMessage = document.querySelectorAll('.error-js');
 var gameResetButton = document.querySelector('#reset-button');
-var guessHint = document.querySelectorAll('.guess-clue');
+var guessHint = document.querySelectorAll('.guess-clue-js');
 var guessOneDisplay = document.querySelector('#guess-1-in-game');
 var guessTwoDisplay = document.querySelector('#guess-2-in-game');
 var inputForGame = document.querySelector('#input-for-game');
@@ -22,9 +22,26 @@ var deleteWinnerCard;
 var randomNumber = createNumber();
 var minNumber = 0;
 var maxNumber = 100;
+var startTime = null
+var totalTime
 
 function createNumber() {
   return Math.round(Math.random() * 100);
+}
+
+function startTimer() {
+  if (startTime === null) {
+    startTime = new Date().getTime();
+  }
+
+}
+
+function calculateTimer() {
+  var elapsedTime = (new Date().getTime() - startTime)
+  var minutes = Math.floor(elapsedTime / 60000);
+  var seconds = ((elapsedTime % 60000) / 1000).toFixed(0);
+  startTime = null;
+  totalTime = `<span class="bold">${minutes}</span> MINUTES <span class="bold">${seconds}</span> SECONDS`
 }
 
 function disableButtons() {
@@ -42,7 +59,7 @@ function resetGame() {
   for (var i = 0; i < challengerNames.length; i++) {
     challengerNames[i].removeAttribute('disabled');
   };
-  clearFields();
+  clearInputFields();
   gameResetButton.setAttribute('disabled', true);
 }
 
@@ -73,7 +90,6 @@ function enableSubmitButton() {
     challengerInputField[2].value.length !== 0 &&
     challengerInputField[3].value.length !== 0) {
     submitButton.removeAttribute('disabled');
-    guessErrorMessage()
   } else {
     submitButton.setAttribute('disabled', true);
   }
@@ -99,10 +115,11 @@ function checkMaxGreaterMin() {
 }
 
 function enableClearButton() {
+  guessErrorMessage()
   clearButton.removeAttribute('disabled');
 }
 
-function clearFields() {
+function clearInputFields() {
   if (challengerNames[0].hasAttribute('disabled')) {
     challengerInputField[1].value = ''
     challengerInputField[3].value = ''
@@ -116,15 +133,20 @@ function clearFields() {
 }
 
 function displayChallengerInputs() {
+  startTimer()
+  changeDisplays()
+  disableInput()
+  checkGuesses()
+  clearInputFields()
+  disableButtons()
+  gameResetButton.removeAttribute('disabled')
+}
+
+function changeDisplays() {
   playerOneDisplay.innerText = challengerNames[0].value;
   playerTwoDisplay.innerText = challengerNames[1].value;
   guessOneDisplay.innerText = challengerGuesses[0].value;
   guessTwoDisplay.innerText = challengerGuesses[1].value;
-  disableInput()
-  checkGuesses()
-  clearFields()
-  disableButtons()
-  gameResetButton.removeAttribute('d isabled')
 }
 
 function guessErrorMessage() {
@@ -138,7 +160,6 @@ function guessErrorMessage() {
     errorMessage[1].style.display = ('none');
   }
 }
-
 
 function checkGuesses() {
   numberOfGuesses += 2;
@@ -163,6 +184,7 @@ function checkGuess(who, display) {
 }
 
 function gameWinner(winner) {
+  calculateTimer()
   var winnerCard = document.createElement('section')
   winnerCard.classList.add('game-box')
   winnerCard.classList.add('winner-card')
@@ -180,7 +202,7 @@ function gameWinner(winner) {
         <hr>
         <section class="card-bottom">
           <p id="guesses"><span class="bold">${numberOfGuesses}</span> GUESSES</p>
-          <p id="timer"><span class="bold">1</span> MINUTE <span class="bold">37</span> SECONDS</p>
+          <p id="timer">${totalTime}</p>
           <input type="button" class="close-button" id="x-button" />
         </section>
         `
@@ -202,5 +224,5 @@ updateButton.addEventListener('click', setRange);
 submitButton.addEventListener('click', displayChallengerInputs);
 inputForGame.addEventListener('input', enableClearButton);
 inputForGame.addEventListener('input', enableSubmitButton);
-clearButton.addEventListener('click', clearFields);
+clearButton.addEventListener('click', clearInputFields);
 gameResetButton.addEventListener('click', resetGame)
