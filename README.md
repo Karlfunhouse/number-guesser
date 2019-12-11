@@ -11,6 +11,6 @@ The player's names and guesses will populate in a section beneath the submit gue
 After a user wins, a card will populate on the right side of the screen declaring the challeneger's names, the winner's name, how many guesses it took and how long the round lasted.  These cards can be deleted by clicking on the x button in the bottom right of each card.  
 
 This is the comp we were given to recreate.  We pretty much nailed it.  
-![alt="Comp recreation"] (https://frontend.turing.io/projects/module-1/assets/number-guesser/winner-cards.jpg)
+![alt="Comp recreation"] (url="https://frontend.turing.io/projects/module-1/assets/number-guesser/winner-cards.jpg")
 
 This project was the joint effort of Karl Nielsen and Kyle Barnett as their first partner project in the 1911 FE program at Turing School of Software & Design.  
